@@ -1,5 +1,60 @@
-.header{
-    background: red;
-    height: 20px;
-    width: 100%;
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.wrapper{
+    height: 100vh;
+}
+
+.menu-btn{
+    margin-top: 50px;
+    height: 60px;
+    width: 45px;
+    padding: 8px;
+    cursor: pointer;
+    position: relative;
+    border: none;
+    background: purple;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#top-line,
+#mid-line,
+#btm-line {
+    stroke: #000;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-miterlimit: 10;
+}
+
+.menu-btn:hover{
+    #top-line, #mid-line, #btm-line{
+        stroke-dasharray: 500;
+        stroke-dashoffset: 500;
+        animation-name: dash;
+        animation-duration: 3s;
+        animation-timing-function: ease-out;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+    }
+}
+
+@keyframes dash {
+    0% {
+        stroke-dashoffset: 500;
+    }
+    40%{
+        stroke-dashoffset: 300;
+    }
+    60%{
+        stroke-dashoffset: 200;
+    }
+    80%{
+        stroke-dashoffset: 100;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
 }
