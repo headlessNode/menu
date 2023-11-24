@@ -13,12 +13,6 @@ wrapper.appendChild(menuBtn);
 const menu = document.createElement('div');
 menu.classList.add('menu');
 menu.classList.add('menu-hide');
-const svg = document.createElement('svg');
-svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
-svg.setAttribute('viewBox', '0 0 40 80');
-svg.setAttribute('xml:space', 'preserve');
-svg.innerHTML = '<switch><g><path class="top-circle" d="M40 36C37 48 25 57 0 54 0 34-.13 9.66 0 0h40v36z" style="fill:#9d4edd"/><path class="mid-circle" d="M40 18c1 9 0 33-40 36C0 34-.13 9.66 0 0h40v18z" style="fill:#7b2cbf"/></g></switch>'
-menu.appendChild(svg);
 wrapper.appendChild(menu);
 
 const hideMenuBtn = document.createElement('button');
