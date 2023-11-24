@@ -3,19 +3,30 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 .wrapper{
     height: 100vh;
+    width: 768px;
+    border: 1px solid black;
+    display: grid;
+    grid-template-rows: 1fr 5fr 1fr;
 }
 
 .menu-btn{
-    margin-top: 50px;
+    display: none;
     height: 60px;
     width: 45px;
     padding: 8px;
     cursor: pointer;
     position: relative;
     border: none;
-    background: purple;
+    background: #7B2CBF;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
 }
@@ -34,10 +45,104 @@
         stroke-dasharray: 500;
         stroke-dashoffset: 500;
         animation-name: dash;
-        animation-duration: 3s;
+        animation-duration: 6s;
         animation-timing-function: ease-out;
         animation-iteration-count: 1;
         animation-fill-mode: forwards;
+    }
+}
+
+.menu-btn-show{
+    display: grid;
+}
+
+.menu-btn-hide{
+    display: none;
+}
+
+.menu-show{
+    display: grid;
+    animation-name: show-menu;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+
+.menu-show #top-circle{
+    animation-name: top-circle-animation;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-delay: 1s;
+}
+
+.menu-hide{
+    display: none;
+}
+
+.menu{
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 80" style="enable-background:new 0 0 40 80" xml:space="preserve"><switch><g><path id="top-circle" d="M40 36C37 48 25 57 0 54 0 34-.13 9.66 0 0h40v36z" style="fill:%239d4edd"/><path id="mid-circle" d="M40 18c1 9 0 33-40 36C0 34-.13 9.66 0 0h40v18z" style="fill:%237b2cbf"/></g></switch></svg>');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    grid-row: 1/3;
+    transform-origin: top left;
+    z-index: 1;
+}
+
+.hide-menu-btn{
+    padding: 5px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: #7B2CBF;
+    grid-row: 3/4;
+    align-self: center;
+    justify-self: center;
+    cursor: pointer;
+}
+
+.cross-icon{
+    stroke-width: 5px;
+}
+
+.show-hide-btn{
+    display: grid;
+    animation-name: show-hide-btn;
+    animation-duration: 300ms;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.remove-hide-btn{
+    display: none;
+}
+
+@keyframes show-menu {
+    0%{
+        height: 0;
+        width: 0;
+    }
+    100%{
+        height: 100%;
+        width: 100%;
+    }
+}
+
+@keyframes show-hide-btn{
+    0%{
+        opacity: 0;
+        transform: translateY(90px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
     }
 }
 
@@ -56,5 +161,16 @@
     }
     100% {
         stroke-dashoffset: 0;
+    }
+}
+
+@keyframes top-circle-animation{
+    0%{
+        width: 0%;
+        height: 0%;
+    }
+    100%{
+        width: 100%;
+        height: 100%;
     }
 }
