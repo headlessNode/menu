@@ -1,37 +1,29 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 80" style="enable-background:new 0 0 40 80" xml:space="preserve">
-  <style type="text/css">
-    /* Animation for the top circle */
-    #top-circle {
-      animation-name: topCircleAnimation;
-      animation-duration: 1s;
-      animation-iteration-count: 1;
-      animation-timing-function: ease-in-out;
-      animation-fill-mode: forwards;
-    }
+<svg class="svg-background" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 80" style="enable-background:new 0 0 40 80" xml:space="preserve">
+    <style type="text/css">
+        #top-circle {
+        animation: topCircleAnimation 300ms linear 1 normal;
+        animation-delay: 1s; /* Delay the animation of the top circle */
+        }
 
-    /* Animation for the middle circle */
-    #mid-circle {
-      animation-name: midCircleAnimation;
-      animation-duration: 1s;
-      animation-iteration-count: 1;
-      animation-timing-function: ease-in-out;
-      animation-fill-mode: forwards;
-    }
+        /* Animation for the middle circle */
+        #mid-circle {
+        animation: midCircleAnimation 300ms linear 1 normal;
+        }
 
-    @keyframes topCircleAnimation {
-      from { width: 0; height: 0; }
-      to { width: 100; height: 100; }
-    }
+        @keyframes topCircleAnimation {
+        from { transform: scale(0); }
+        to { transform: scale(1); }
+        }
 
-    @keyframes midCircleAnimation {
-      from { width: 0; height: 0; }
-      to { width: 100; height: 100; }
-    }
-  </style>
-  <switch>
-    <g>
-      <path id="top-circle" d="M40 36C37 48 25 57 0 54 0 34-.13 9.66 0 0h40v36z" style="fill:#9d4edd"/>
-      <path id="mid-circle" d="M40 18c1 9 0 33-40 36C0 34-.13 9.66 0 0h40v18z" style="fill:#7b2cbf"/>
-    </g>
-  </switch>
+        @keyframes midCircleAnimation {
+        from { transform: scale(0); }
+        to { transform: scale(1); }
+        }
+    </style>
+    <switch>
+        <g>
+            <ellipse id="mid-circle" cx="6.5" cy="7" rx="43.5" ry="39" style="fill:#9d4edd"/>
+            <ellipse id="top-circle" cx="2" cy="9" rx="40" ry="37" style="fill:#7b2cbf"/>
+        </g>
+    </switch>
 </svg>

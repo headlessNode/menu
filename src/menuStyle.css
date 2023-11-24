@@ -63,19 +63,10 @@ body{
 .menu-show{
     display: grid;
     animation-name: show-menu;
-    animation-duration: 1s;
+    animation-duration: 300ms;
     animation-timing-function: ease-in-out;
-    animation-fill-mode: forwards;
+    animation-fill-mode: none;
     animation-iteration-count: 1;
-}
-
-.menu-show #top-circle{
-    animation-name: top-circle-animation;
-    animation-duration: 1s;
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: forwards;
-    animation-iteration-count: 1;
-    animation-delay: 1s;
 }
 
 .menu-hide{
@@ -85,9 +76,7 @@ body{
 .menu{
     width: 100%;
     height: 100%;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 80" style="enable-background:new 0 0 40 80" xml:space="preserve"><style type="text/css"> /* Animation for the top circle */ %23top-circle { animation-name: topCircleAnimation; animation-duration: 1s; animation-iteration-count: 1; animation-timing-function: ease-in-out; animation-fill-mode: forwards; } /* Animation for the middle circle */ %23mid-circle { animation-name: midCircleAnimation; animation-duration: 1s; animation-iteration-count: 1; animation-timing-function: ease-in-out; animation-fill-mode: forwards; } @keyframes topCircleAnimation { from { width: 0; height: 0; } to { width: 40px; height: 80px; } } @keyframes midCircleAnimation { from { width: 0; height: 0; } to { width: 40px; height: 80px; } } </style><switch><g><path id="top-circle" d="M40 36C37 48 25 57 0 54 0 34-.13 9.66 0 0h40v36z" style="fill:%239d4edd"/><path id="mid-circle" d="M40 18c1 9 0 33-40 36C0 34-.13 9.66 0 0h40v18z" style="fill:%237b2cbf"/></g></switch></svg>');
-    background-repeat: no-repeat;
-    background-size: cover;
+    /* background: url('data:image/svg+xml,<svg class="svg-background" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 80" style="enable-background:new 0 0 40 80" xml:space="preserve"><style type="text/css"> %23top-circle { animation-name: topCircleAnimation; animation-duration: 2s; animation-timing-function: ease-in-out; animation-iteration-count: 1; animation-fill-mode: forwards; } %23mid-circle { animation-name: midCircleAnimation; animation-duration: 1.9s; animation-timing-function: ease-in-out; animation-iteration-count: 1; animation-fill-mode: forwards; } @keyframes topCircleAnimation { from { transform: scale(0); } to { transform: scale(1); } } @keyframes midCircleAnimation { from { transform: scale(0); } to { transform: scale(1); } } </style><switch><g><ellipse id="mid-circle" cx="6.5" cy="7" rx="43.5" ry="39" style="fill:%239d4edd"/><ellipse id="top-circle" cx="2" cy="9" rx="40" ry="37" style="fill:%237b2cbf"/></g></switch></svg>'); */
     grid-row: 1/3;
     transform-origin: top left;
     z-index: 1;
@@ -125,12 +114,10 @@ body{
 
 @keyframes show-menu {
     0%{
-        height: 0;
-        width: 0;
+        opacity: 0;
     }
     100%{
-        height: 100%;
-        width: 100%;
+        opacity: 1;
     }
 }
 
@@ -160,16 +147,5 @@ body{
     }
     100% {
         stroke-dashoffset: 0;
-    }
-}
-
-@keyframes top-circle-animation{
-    0%{
-        width: 0%;
-        height: 0%;
-    }
-    100%{
-        width: 100%;
-        height: 100%;
     }
 }
