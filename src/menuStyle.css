@@ -18,13 +18,23 @@ body {
     width: 768px;
     border: 1px solid black;
     display: grid;
-    grid-template-rows: 60px 6fr 1fr;
+    grid-template-rows: 5rem 6fr 1fr;
+    gap: 10px;
 }
 
 .header{
     width: 100%;
-    height: fit-content;
+    height: 5rem;
     background: #7B2CBF;
+    display: grid;
+    grid-template-columns: 1fr repeat(3,1fr);
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+}
+
+.header h1{
+    grid-column: 2/4;
 }
 
 .menu-btn {
@@ -60,22 +70,23 @@ body {
 }
 
 .main-body-content{
-    width: 50%;
-    height: 80%;
+    width: 100%;
+    height: 100%;
     gap: 40px;
     display: grid;
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     justify-items: center;
     align-items: center;
 }
 
 .main-body-content p{
     height: 100%;
-    width: 100%;
+    width: 60%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    text-align: center;
     box-shadow: 2px 2px 2px 2px rgba(169, 169, 169, 0.7);
     border-radius: 5px;
     padding: 20px;
@@ -111,9 +122,9 @@ body {
 }
 
 .menu {
-    position: fixed;
-    width: 768px;
-    height: 80%;
+    position: absolute;
+    width: 100%;
+    height: 70%;
     top: 0;
     z-index: 2;
     transform-origin: top left;

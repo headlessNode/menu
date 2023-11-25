@@ -13,6 +13,10 @@ menuBtn.classList.add('menu-btn-show');
 menuBtn.innerHTML ='<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" class="menu-icon" viewBox="0 0 40 60" xml:space="preserve"><switch><g><path id="btm-line" class="st0" d="M2 17.72h36"/><path id="mid-line" class="st0" d="M38 30H2"/><path id="top-line" class="st0" d="M2 42.28h36"/></g></switch></svg>';
 header.appendChild(menuBtn);
 
+const heading = document.createElement('h1');
+heading.textContent = "Menu Design"
+header.appendChild(heading);
+
 const mainBody = document.createElement('div');
 mainBody.classList.add('main-body');
 const mainBodyHeader = document.createElement('h2');
