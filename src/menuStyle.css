@@ -12,11 +12,19 @@ body {
 }
 
 .wrapper {
+    position: absolute;
+    top: 0;
     height: 100dvh;
     width: 768px;
     border: 1px solid black;
     display: grid;
-    grid-template-rows: 1fr 5fr 1fr;
+    grid-template-rows: 60px 6fr 1fr;
+}
+
+.header{
+    width: 100%;
+    height: fit-content;
+    background: #7B2CBF;
 }
 
 .menu-btn {
@@ -28,8 +36,49 @@ body {
     position: relative;
     border: none;
     background: #7B2CBF;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+}
+
+.main-body{
+    grid-row: 2/3;
+    display: grid;
+    grid-template-rows: 60px 1fr;
+    width: 100%;
+    height: 100%;
+    gap: 20px;
+    justify-items: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.main-body-header{
+    width: 100%;
+    height: 60px;
+    grid-row: 1/2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-body-content{
+    width: 50%;
+    height: 80%;
+    gap: 40px;
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    justify-items: center;
+    align-items: center;
+}
+
+.main-body-content p{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    box-shadow: 2px 2px 2px 2px rgba(169, 169, 169, 0.7);
+    border-radius: 5px;
+    padding: 20px;
 }
 
 #top-line,
@@ -62,11 +111,11 @@ body {
 }
 
 .menu {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    grid-row: 1/3;
-    z-index: 1;
+    position: fixed;
+    width: 768px;
+    height: 80%;
+    top: 0;
+    z-index: 2;
     transform-origin: top left;
 }
 
@@ -89,7 +138,6 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    border: 1px solid black;
     background: #9D4EDD;
     clip-path: ellipse(100% 90% at 25px 7px);
     top: 0;

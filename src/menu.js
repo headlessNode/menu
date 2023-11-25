@@ -1,14 +1,45 @@
 import "./menuStyle.css";
 
 // DOM
-const wrapper =
-  document.querySelector(".wrapper");
-const menuBtn =
-  document.createElement("button");
+const wrapper = document.querySelector(".wrapper");
+
+const header = document.createElement('div');
+header.classList.add('header');
+wrapper.appendChild(header);
+
+const menuBtn = document.createElement("button");
 menuBtn.classList.add("menu-btn");
 menuBtn.classList.add('menu-btn-show');
 menuBtn.innerHTML ='<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" class="menu-icon" viewBox="0 0 40 60" xml:space="preserve"><switch><g><path id="btm-line" class="st0" d="M2 17.72h36"/><path id="mid-line" class="st0" d="M38 30H2"/><path id="top-line" class="st0" d="M2 42.28h36"/></g></switch></svg>';
-wrapper.appendChild(menuBtn);
+header.appendChild(menuBtn);
+
+const mainBody = document.createElement('div');
+mainBody.classList.add('main-body');
+const mainBodyHeader = document.createElement('h2');
+mainBodyHeader.classList.add('main-body-header');
+mainBodyHeader.textContent = 'Lorem Ipsum';
+
+const mainBodyContent = document.createElement('div');
+mainBodyContent.classList.add('main-body-content');
+
+const mainBodyParagraphOne = document.createElement('p');
+mainBodyParagraphOne.textContent = 'Lorem Ipsum is simply dummy text';
+const mainBodyParagraphTwo = document.createElement('p');
+mainBodyParagraphTwo.textContent = 'Lorem Ipsum is simply dummy text';
+const mainBodyParagraphThree = document.createElement('p');
+mainBodyParagraphThree.textContent = 'Lorem Ipsum is simply dummy text';
+const mainBodyParagraphFour = document.createElement('p');
+mainBodyParagraphFour.textContent = 'Lorem Ipsum is simply dummy text';
+
+mainBodyContent.appendChild(mainBodyParagraphOne);
+mainBodyContent.appendChild(mainBodyParagraphTwo);
+mainBodyContent.appendChild(mainBodyParagraphThree);
+mainBodyContent.appendChild(mainBodyParagraphFour);
+
+mainBody.appendChild(mainBodyHeader);
+mainBody.appendChild(mainBodyContent);
+
+wrapper.appendChild(mainBody);
 
 const menu = document.createElement('div');
 menu.classList.add('menu');
@@ -43,7 +74,6 @@ function showMenu(){
 function hideMenu(){
 
   menu.classList.remove('menu-show');
-
   menuTop.classList.add("hide-menu-top");
   menuBottom.classList.add("hide-menu-btm");
 
