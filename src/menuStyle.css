@@ -1,24 +1,25 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-.wrapper{
-    height: 100vh;
-    width: 768px;
+
+.wrapper {
+    height: 100dvh;
+    width: 100%;
     border: 1px solid black;
     display: grid;
     grid-template-rows: 1fr 5fr 1fr;
 }
 
-.menu-btn{
+.menu-btn {
     display: none;
     height: 60px;
     width: 45px;
@@ -40,49 +41,82 @@ body{
     stroke-miterlimit: 10;
 }
 
-.menu-btn:hover{
-    #top-line, #mid-line, #btm-line{
-        stroke-dasharray: 500;
-        stroke-dashoffset: 500;
-        animation-name: dash;
-        animation-duration: 6s;
-        animation-timing-function: ease-out;
-        animation-iteration-count: 1;
-        animation-fill-mode: forwards;
-    }
-}
-
-.menu-btn-show{
-    display: grid;
-}
-
-.menu-btn-hide{
-    display: none;
-}
-
-.menu-show{
-    display: grid;
-    animation-name: show-menu;
-    animation-duration: 300ms;
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: none;
+.menu-btn:hover #top-line,
+.menu-btn:hover #mid-line,
+.menu-btn:hover #btm-line {
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500;
+    animation-name: dash;
+    animation-duration: 6s;
+    animation-timing-function: ease-out;
     animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 }
 
-.menu-hide{
+.menu-btn-show {
+    display: grid;
+}
+
+.menu-btn-hide {
     display: none;
 }
 
-.menu{
+.menu-show {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    transform-origin: top left;
+    animation-name: menu-show;
+    animation-duration: 500ms;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.menu-hide {
+    display: none;
+}
+
+.menu {
+    position: relative;
     width: 100%;
     height: 100%;
-    /* background: url('data:image/svg+xml,<svg class="svg-background" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 80" style="enable-background:new 0 0 40 80" xml:space="preserve"><style type="text/css"> %23top-circle { animation-name: topCircleAnimation; animation-duration: 2s; animation-timing-function: ease-in-out; animation-iteration-count: 1; animation-fill-mode: forwards; } %23mid-circle { animation-name: midCircleAnimation; animation-duration: 1.9s; animation-timing-function: ease-in-out; animation-iteration-count: 1; animation-fill-mode: forwards; } @keyframes topCircleAnimation { from { transform: scale(0); } to { transform: scale(1); } } @keyframes midCircleAnimation { from { transform: scale(0); } to { transform: scale(1); } } </style><switch><g><ellipse id="mid-circle" cx="6.5" cy="7" rx="43.5" ry="39" style="fill:%239d4edd"/><ellipse id="top-circle" cx="2" cy="9" rx="40" ry="37" style="fill:%237b2cbf"/></g></switch></svg>'); */
     grid-row: 1/3;
     transform-origin: top left;
-    z-index: 1;
 }
 
-.hide-menu-btn{
+.menu-top {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #7B2CBF;
+    clip-path: ellipse(100% 89.5% at 2px 9px);
+    z-index: 1;
+    opacity: 1;
+    animation-name: top-circle;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.menu-btm {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+    background: #9D4EDD;
+    clip-path: ellipse(100% 90% at 25px 7px);
+    top: 0;
+    left: 0;
+    z-index: 0;
+    animation-name: mid-circle;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.hide-menu-btn {
     padding: 5px;
     width: 40px;
     height: 40px;
@@ -95,11 +129,11 @@ body{
     cursor: pointer;
 }
 
-.cross-icon{
+.cross-icon {
     stroke-width: 5px;
 }
 
-.show-hide-btn{
+.show-hide-btn {
     display: grid;
     animation-name: show-hide-btn;
     animation-duration: 300ms;
@@ -108,25 +142,25 @@ body{
     animation-fill-mode: forwards;
 }
 
-.remove-hide-btn{
+.remove-hide-btn {
     display: none;
 }
 
-@keyframes show-menu {
-    0%{
-        opacity: 0;
+@keyframes menu-show {
+    0% {
+        transform: scale(0);
     }
-    100%{
-        opacity: 1;
+    100% {
+        transform: scale(1);
     }
 }
 
-@keyframes show-hide-btn{
-    0%{
+@keyframes show-hide-btn {
+    0% {
         opacity: 0;
         transform: translateY(90px);
     }
-    100%{
+    100% {
         opacity: 1;
         transform: translateY(0px);
     }
@@ -136,16 +170,34 @@ body{
     0% {
         stroke-dashoffset: 500;
     }
-    40%{
+    40% {
         stroke-dashoffset: 300;
     }
-    60%{
+    60% {
         stroke-dashoffset: 200;
     }
-    80%{
+    80% {
         stroke-dashoffset: 100;
     }
     100% {
         stroke-dashoffset: 0;
+    }
+}
+
+@keyframes top-circle {
+    0% {
+        clip-path: ellipse(0px 0px at 0px 0px);
+    }
+    100% {
+        clip-path: ellipse(100% 89.5% at 2px 9px);
+    }
+}
+
+@keyframes mid-circle {
+    0% {
+        clip-path: ellipse(0px 0px at 0px 0px);
+    }
+    100% {
+        clip-path: ellipse(100% 90% at 25px 12px);
     }
 }

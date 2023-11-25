@@ -13,7 +13,12 @@ wrapper.appendChild(menuBtn);
 const menu = document.createElement('div');
 menu.classList.add('menu');
 menu.classList.add('menu-hide');
-const svgBackground = `url('data:image/svg+xml,<svg class="svg-background" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 80" style="enable-background:new 0 0 40 80" xml:space="preserve"><style type="text/css"> %23top-circle { animation-name: topCircleAnimation; animation-duration: 2s; animation-timing-function: ease-in-out; animation-iteration-count: 1; animation-fill-mode: forwards; } %23mid-circle { animation-name: midCircleAnimation; animation-duration: 1.9s; animation-timing-function: ease-in-out; animation-iteration-count: 1; animation-fill-mode: forwards; } @keyframes topCircleAnimation { from { transform: scale(0); } to { transform: scale(1); } } @keyframes midCircleAnimation { from { transform: scale(0); } to { transform: scale(1); } } </style><switch><g><ellipse id="mid-circle" cx="6.5" cy="7" rx="43.5" ry="39" style="fill:%239d4edd"/><ellipse id="top-circle" cx="2" cy="9" rx="40" ry="37" style="fill:%237b2cbf"/></g></switch></svg>')`;
+const menuTop = document.createElement('div');
+menuTop.classList.add('menu-top');
+const menuBottom = document.createElement('div');
+menuBottom.classList.add('menu-btm');
+menu.appendChild(menuTop);
+menu.appendChild(menuBottom);
 wrapper.appendChild(menu);
 
 const hideMenuBtn = document.createElement('button');
@@ -27,9 +32,6 @@ function showMenu(){
   menuBtn.classList.add('menu-btn-hide');
   menu.classList.remove('menu-hide');
   menu.classList.add('menu-show');
-  menu.style.background = svgBackground;
-  menu.style.backgroundRepeat = 'no-repeat';
-  menu.style.backgroundSize = 'cover';
   hideMenuBtn.classList.remove('remove-hide-btn');
   hideMenuBtn.classList.add('show-hide-btn');
 }
