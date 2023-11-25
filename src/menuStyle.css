@@ -40,12 +40,13 @@ body {
 .menu-btn {
     display: none;
     height: 60px;
-    width: 45px;
-    padding: 8px;
+    width: 40px;
+    margin-left: 20px;
     cursor: pointer;
     position: relative;
     border: none;
     background: #7B2CBF;
+    justify-self: flex-start;
 }
 
 .main-body{
