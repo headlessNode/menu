@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   mode: "development",
   entry: "./src/menu.js",
-  devtool: 'inline-source-map',
+  devtool: "inline-source-map",
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/template.html",
@@ -23,18 +23,18 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: 'asset/resource',
+        type: "asset/resource",
       },
       {
         test: /\.svg$/,
-        use:{
+        use: {
           loader: "file-loader",
           options: {
             name: "[name].[ext]",
             outputPath: "images/",
           },
-        }
-      }
+        },
+      },
     ],
   },
 };
