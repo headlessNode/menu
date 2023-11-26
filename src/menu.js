@@ -112,14 +112,14 @@ function showMenu(){
 function hideMenu(){
 
   menu.classList.remove('menu-show');
+  hideMenuBtn.classList.remove('show-hide-btn');
+  hideMenuBtn.classList.add('remove-hide-btn');
   menuTop.classList.add("hide-menu-top");
   menuBottom.classList.add("hide-menu-btm");
   menuModal.classList.add("menu-modal-hide");
   menu.classList.add('menu-hide-visually');
 
-  hideMenuBtn.classList.remove('show-hide-btn');
-  hideMenuBtn.classList.add('remove-hide-btn');
-  
+
   setTimeout(()=>{
     menu.classList.add('menu-remove');
     menuBtn.classList.add('menu-btn-show');

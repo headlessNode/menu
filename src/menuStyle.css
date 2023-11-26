@@ -283,6 +283,7 @@ body {
 .hide-menu-btn {
     position: absolute;
     bottom: 10%;
+    left: 40%;
     padding: 5px;
     width: 60px;
     height: 60px;
@@ -311,7 +312,12 @@ body {
 }
 
 .remove-hide-btn {
-    display: none;
+    animation-name: remove-hide-btn;
+    animation-duration: 300ms;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-delay: 300ms;
 }
 
 @keyframes menu-show {
@@ -408,6 +414,17 @@ body {
     100% {
         clip-path: ellipse(0px 0px at 0px 0px);
         
+    }
+}
+
+@keyframes remove-hide-btn {
+    0%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100%{
+        opacity: 0;
+        transform: translateY(90px);
     }
 }
 
