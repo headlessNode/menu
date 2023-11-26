@@ -9,13 +9,14 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    font-family:Arial, Helvetica, sans-serif;
 }
 
 .wrapper {
     position: absolute;
     top: 0;
-    height: 100svh;
-    width: 768px;
+    height: 800px;
+    width: 375px;
     border: 1px solid black;
     display: grid;
     grid-template-rows: 5rem 6fr 1fr;
@@ -27,14 +28,15 @@ body {
     height: 5rem;
     background: #7B2CBF;
     display: grid;
-    grid-template-columns: 1fr repeat(3,1fr);
+    grid-template-columns: 95px 1fr;
     align-items: center;
     justify-items: center;
     text-align: center;
 }
 
 .header h1{
-    grid-column: 2/4;
+    grid-column: 2/3;
+    justify-self: start;
 }
 
 .menu-btn {
@@ -125,10 +127,11 @@ body {
 
 .menu-top {
     position: absolute;
+    display: grid;
     width: 100%;
     height: 100%;
     background: #7B2CBF;
-    clip-path: ellipse(100% 89.5% at 2px 9px);
+    clip-path: ellipse(100% 69.5% at 2px 9px);
     z-index: 2;
     opacity: 1;
     animation-name: top-circle;
@@ -138,12 +141,69 @@ body {
     animation-fill-mode: forwards;
 }
 
+.menu-top .menu-items-container{
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(7, 60px);
+    align-items: center;
+    top: 2%;
+    left: 10%;
+    gap: 2rem;
+    font-size: medium;
+    font-weight:bold;
+    color: white;
+    width: 80%;
+    height: fit-content;
+    padding: 20px;
+}
+
+.menu-top .menu-items-container > p{
+    grid-column: 1/2;
+    justify-self: start;
+    border-bottom: 0px solid white;
+    transition: border 300ms ease-in-out;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.menu-items-container .menu-pic{
+    grid-row: 1/2;
+    grid-column: 2/3;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background: white;
+    align-self: center;
+    justify-self: end;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-items-container .menu-pic > svg{
+    width: 50px;
+    height: 50px;
+}
+
+.menu-items-container > p:hover{
+    border-bottom: 1px solid white;
+}
+
+.menu-items-container > *{
+    animation-name: menu-items-animation;
+    animation-duration: 500ms;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+
 .menu-btm {
     position: absolute;
     width: 100%;
     height: 100%;
     background: #9D4EDD;
-    clip-path: ellipse(100% 90% at 100px 15px);
+    clip-path: ellipse(100% 70% at 40px 9px);
     top: 0;
     left: 0;
     z-index: 1;
@@ -164,6 +224,7 @@ body {
     top: 0;
     left: 0;
     z-index: 0;
+    overflow: hidden;
     animation-name: modal-animation;
     animation-duration: 100ms;
     animation-timing-function: linear;
@@ -221,7 +282,7 @@ body {
 
 .hide-menu-btn {
     position: absolute;
-    top: 90%;
+    bottom: 10%;
     padding: 5px;
     width: 60px;
     height: 60px;
@@ -297,7 +358,7 @@ body {
         
     }
     100% {
-        clip-path: ellipse(100% 89.5% at 2px 9px);
+        clip-path: ellipse(100% 69.5% at 2px 9px);
     }
 }
 
@@ -306,7 +367,7 @@ body {
         clip-path: ellipse(0px 0px at 0px 0px);
     }
     100% {
-        clip-path: ellipse(100% 90% at 100px 15px);
+        clip-path: ellipse(100% 70% at 40px 9px);
     }
 }
 
@@ -319,9 +380,20 @@ body {
     }
 }
 
+@keyframes menu-items-animation {
+    0%{
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
 @keyframes hide-top-circle {
     0% {
-        clip-path: ellipse(100% 89.5% at 2px 9px);
+        clip-path: ellipse(100% 69.5% at 2px 9px);
     
     }
     100% {
@@ -331,7 +403,7 @@ body {
 
 @keyframes hide-btm-circle {
     0% {
-        clip-path: ellipse(100% 90% at 100px 15px);
+        clip-path: ellipse(100% 70% at 40px 9px);
     }
     100% {
         clip-path: ellipse(0px 0px at 0px 0px);
@@ -350,8 +422,13 @@ body {
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 375px) {
     .wrapper {
       width: 100%;
+    }
+}
+@media screen and (max-height: 800px) {
+    .wrapper{
+        height: 100svh;
     }
 }  
