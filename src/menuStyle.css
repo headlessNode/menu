@@ -14,7 +14,7 @@ body {
 .wrapper {
     position: absolute;
     top: 0;
-    height: 100dvh;
+    height: 100svh;
     width: 768px;
     border: 1px solid black;
     display: grid;
@@ -38,7 +38,7 @@ body {
 }
 
 .menu-btn {
-    display: none;
+    display: grid;
     height: 60px;
     width: 40px;
     margin-left: 20px;
@@ -114,18 +114,10 @@ body {
     animation-fill-mode: forwards;
 }
 
-.menu-btn-show {
-    display: grid;
-}
-
-.menu-btn-hide {
-    display: none;
-}
-
 .menu {
     position: absolute;
     width: 100%;
-    height: 70%;
+    height: 100%;
     top: 0;
     z-index: 2;
     transform-origin: top left;
@@ -137,11 +129,11 @@ body {
     height: 100%;
     background: #7B2CBF;
     clip-path: ellipse(100% 89.5% at 2px 9px);
-    z-index: 1;
+    z-index: 2;
     opacity: 1;
     animation-name: top-circle;
-    animation-duration: 1s;
-    animation-timing-function: ease-in-out;
+    animation-duration: 500ms;
+    animation-timing-function: linear;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
@@ -151,17 +143,33 @@ body {
     width: 100%;
     height: 100%;
     background: #9D4EDD;
-    clip-path: ellipse(100% 90% at 25px 7px);
+    clip-path: ellipse(100% 90% at 100px 15px);
     top: 0;
     left: 0;
-    z-index: 0;
+    z-index: 1;
     animation-name: mid-circle;
-    animation-duration: 500ms;
-    animation-timing-function: ease-in-out;
+    animation-duration: 300ms;
+    animation-timing-function: linear;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
 
+.menu-modal{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(169, 169, 169, 0.5);
+    backdrop-filter: blur(5px);
+    clip-path: circle(150% at top left);
+    top: 0;
+    left: 0;
+    z-index: 0;
+    animation-name: modal-animation;
+    animation-duration: 100ms;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
 .menu.menu-show{
     display: grid;
     grid-template-rows: 1fr 1fr;
@@ -170,8 +178,8 @@ body {
 .menu-show {
     transform-origin: top left;
     animation-name: menu-show;
-    animation-duration: 500ms;
-    animation-timing-function: ease-in-out;
+    animation-duration: 10ms;
+    animation-timing-function: linear;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
@@ -180,41 +188,47 @@ body {
     display: none;
 }
 
-.menu-hide-visually {
-    transform-origin: top left;
-    animation-name: menu-hide;
-    animation-duration: 1.5s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-}
-
 .hide-menu-top{
+    clip-path: ellipse(0px 0px at 0px 0px);
     transform-origin: top left;
     animation-name: hide-top-circle;
-    animation-duration: 1s;
-    animation-timing-function: ease-in-out;
+    animation-duration: 300ms;
+    animation-timing-function: linear;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
 
 .hide-menu-btm{
+    clip-path: ellipse(0px 0px at 0px 0px);
     transform-origin: top left;
     animation-name: hide-btm-circle;
-    animation-duration: 2s;
-    animation-timing-function: ease-in-out;
+    animation-duration: 500ms;
+    animation-timing-function: linear;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
 
+.menu-modal-hide{
+    clip-path: circle(0px at top left);
+    transform-origin: top left;
+    animation-name: menu-modal-hide;
+    animation-duration: 800ms;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;    
+}
+
+
 .hide-menu-btn {
+    position: absolute;
+    top: 90%;
     padding: 5px;
     width: 60px;
     height: 60px;
     border: none;
+    z-index: 1;
     border-radius: 50%;
     background: #7B2CBF;
-    grid-row: 3/4;
     align-self: center;
     justify-self: center;
     cursor: pointer;
@@ -226,11 +240,13 @@ body {
 
 .show-hide-btn {
     display: grid;
+    opacity: 0;
     animation-name: show-hide-btn;
     animation-duration: 300ms;
     animation-timing-function: ease-in-out;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
+    animation-delay: 300ms;
 }
 
 .remove-hide-btn {
@@ -290,38 +306,47 @@ body {
         clip-path: ellipse(0px 0px at 0px 0px);
     }
     100% {
-        clip-path: ellipse(100% 90% at 25px 12px);
+        clip-path: ellipse(100% 90% at 100px 15px);
     }
 }
 
- @keyframes menu-hide {
-    0%{
-        transform: scale(1);
+@keyframes modal-animation {
+    0% {
+        clip-path: circle(0px at top left);
     }
     100% {
-        transform: scale(0);
+        clip-path: circle(150% at top left);
     }
 }
 
 @keyframes hide-top-circle {
     0% {
         clip-path: ellipse(100% 89.5% at 2px 9px);
-        transform: scale(1);
+    
     }
     100% {
         clip-path: ellipse(0px 0px at 0px 0px);
-        transform: scale(0);
     }
 }
 
 @keyframes hide-btm-circle {
     0% {
-        clip-path: ellipse(100% 90% at 25px 12px);
-        transform: scale(1);
+        clip-path: ellipse(100% 90% at 100px 15px);
     }
     100% {
         clip-path: ellipse(0px 0px at 0px 0px);
-        transform: scale(0);
+        
+    }
+}
+
+@keyframes menu-modal-hide {
+    0%{
+        clip-path: circle(150% at top left);
+        
+    }
+    100%{
+        clip-path: circle((0px at top left));
+        
     }
 }
 
