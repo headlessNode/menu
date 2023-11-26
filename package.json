@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "deploy": "git add dist && git commit -m 'Initial dist subtree commit' && git subtree push --prefix dist origin gh-pages"
   },
   "keywords": [],
   "author": "",
